@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en_US" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bootstrap Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <div th:replace="~{commons/common-element::use-css}"></div>
+
+  </head>
+  <body>
+    <!--侧边栏-->
+    <nav th:replace="~{commons/common-element::side-navbar}"></nav>
+    <div class="page">
+      <!--头部导航栏-->
+      <header class="header" th:replace="~{commons/common-element::header}"></header>
+      <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{manager.html}">主页</a></li>
+            <li class="breadcrumb-item active">成绩录入</li>
+          </ul>
+        </div>
+      </div>
+      <section class="forms">
+        <div class="container-fluid">
+          <!-- Page Header-->
+          <header>
+            <h1 class="h3 display">Forms </h1>
+          </header>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>Horizontal Form</h4>
+                </div>
+                <div class="card-body">
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <form class="form-horizontal">
+                    <div class="form-group row">
+                      <label class="col-sm-2">Email</label>
+                      <div class="col-sm-10">
+                        <input id="inputHorizontalSuccess" type="email"
+                               placeholder="Email Address"
+                               class="form-control form-control-success"><small
+                          class="form-text">Example help text that remains unchanged.</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2">Password</label>
+                      <div class="col-sm-10">
+                        <input id="inputHorizontalWarning" type="password" placeholder="Pasword"
+                               class="form-control form-control-warning"><small
+                          class="form-text">Example help text that remains unchanged.</small>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-10 offset-sm-2">
+                        <input type="submit" value="Signin" class="btn btn-primary">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>All form elements</h4>
+                </div>
+                <div class="card-body">
+                  <form class="form-horizontal">
+                    <div class="form-group row">
+                      <label class="col-sm-2 form-control-label">Column sizing</label>
+                      <div class="col-sm-10">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <input type="text" placeholder=".col-md-4" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2 form-control-label">Select</label>
+                      <div class="col-sm-10 mb-3">
+                        <select name="account" class="form-control">
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="form-group row">
+                      <div class="col-sm-4 offset-sm-2">
+                        <button type="submit" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--页脚-->
+      <footer th:replace="~{commons/common-element::footer}"></footer>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+  </body>
+</html>

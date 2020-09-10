@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en_US" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bootstrap Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <div th:replace="~{commons/common-element::use-css}"></div>
+
+  </head>
+  <body>
+    <!--侧边栏-->
+    <nav th:replace="~{commons/common-element::side-navbar}"></nav>
+    <div class="page">
+      <!--头部导航栏-->
+      <header class="header" th:replace="~{commons/common-element::header}"></header>
+      <!-- Breadcrumb-->
+      <div class="breadcrumb-holder">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{manager.html}">主页</a></li>
+            <li class="breadcrumb-item active">成绩表格</li>
+          </ul>
+        </div>
+      </div>
+      <section>
+        <div class="container-fluid">
+          <!-- Page Header-->
+          <header>
+            <h1 class="h3 display">成绩表格</h1>
+          </header>
+          <div class="row">
+            <div class="col-lg-6" th:each="courseName:${session.scoreMap.keySet()}">
+              <div class="card">
+                <div class="card-header">
+                  <h4 th:text="${courseName}"></h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>学号</th>
+                          <th>姓名</th>
+                          <th>分数</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr th:each="scoreList:${session.scoreMap.get(courseName)}">
+                          <td th:text="${scoreList.getStuId()}"></td>
+                          <td th:text="${scoreList.getStuName()}"></td>
+                          <td th:text="${scoreList.getScore()}"></td>
+                        </tr>
+                      </tbody>
+<!--                      <tbody>
+                        <tr th:each="scoreDtos:${session.scoreDtos}">
+                          <td th:text="${scoreDtos.getStuId()}"></td>
+                          <td th:text="${scoreDtos.getStuName()}"></td>
+                          <td th:text="${scoreDtos.getScore()}"></td>
+                        </tr>
+                      </tbody>-->
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--页脚-->
+      <footer th:replace="~{commons/common-element::footer}"></footer>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+  </body>
+</html>
